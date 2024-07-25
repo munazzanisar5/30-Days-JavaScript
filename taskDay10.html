@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      p {
+        font-size: 1rem;
+      }
+      .image {
+        margin: 2rem 0;
+      }
+      .top {
+        margin-top: 2rem;
+      }
+      .block {
+        margin: 3rem;
+      }
+      .btn2{
+        display: block;
+        
+      }
+      .box{
+        margin: 2rem;
+        width: 8rem;
+        height: 8rem;
+        background-color: rgb(240, 13, 248);
+        color: aliceblue;
+      }
+      input{
+        margin: 1rem 0;
+      }
+      .clr{
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <div class="top">
+        <p class="text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum quis
+          laudantium aliquid dicta tenetur, consectetur magnam facere voluptate
+          necessitatibus! Nisi, fugiat aut molestiae blanditiis recusandae
+          excepturi voluptatum dolorem maxime molestias?
+        </p>
+
+        <button class="btn1">Click</button>
+      </div>
+      <div class="image">
+        <img class="img" src="img1.jpeg" alt="" />
+        <button class="btn2">Double-Click</button>
+      </div>
+      <div class="box">
+        <h2 class="clr">Change color</h2>
+      </div>
+      <input class="input" type="text">
+     <div class="">
+        <p class="frnd">Hello Friends</p>
+        <input class="myinput" type="text">
+     </div>
+
+     <form class="form">
+        <input class="name" type="text" placeholder="Name">
+        <input class="email" type="email" name="" id="" placeholder="Email">
+        <button class="submit" type="submit">submit</button>
+     </form>
+
+     <select id="myDropdown">
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+    <p id="displayParagraph">Select an option from the dropdown.</p>
+
+    <ul id="parentList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <div id="parent"></div>
+    <button id="addChild">Add Child</button>
+
+    </div>
+
+    <script>
+
+    // Activity 1
+      let text = document.querySelector(".text");
+      let btn1 = document.querySelector(".btn1");
+      btn1.addEventListener("click", () => {
+        text.textContent = `Events are fired to notify code of "interesting changes" that may affect code execution. These can arise from user interactions such as using a mouse or resizing a window, changes in the state of the underlying environment (e.g. low battery or media events from the operating system), and other causes.`;
+      });
+
+      let btn2 = document.querySelector(".btn2");
+      let img = document.querySelector(".img")
+      btn2.addEventListener("dblclick", ()=>{
+        if (img.style.visibility =="visible") {
+            img.style.visibility="hidden"
+        }
+        else{
+            img.style.visibility="visible"
+        }
+        
+      })
+
+     // Activity 2
+      let box = document.querySelector(".box")
+      box.addEventListener("mouseover",()=>{
+        box.style.backgroundColor = "red"
+      })
+
+      box.addEventListener("mouseout",()=>{
+        box.style.backgroundColor = "rgb(240, 13, 248)"
+      })
+
+    // Activity 3 
+      let input = document.querySelector(".input")
+        input.addEventListener("keydown",()=>{
+            console.log("Key pressed");
+          })
+    let myinput = document.querySelector(".myinput")
+      let frnd = document.querySelector(".frnd")
+      frnd.style.display="none"
+      myinput.addEventListener("keyup",()=>{
+        console.log("Key pressed up");
+        frnd.style.display="block"
+      })
+
+
+
+    // Activity 4
+
+ 
+    document.addEventListener("DOMContentLoaded", () => {
+    let form = document.querySelector("form");
+    let name = document.querySelector(".name");
+    let email = document.querySelector(".email");
+    let submit = document.querySelector(".submit");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        console.log(name.value);
+        console.log(email.value);
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+    const dropdown = document.getElementById('myDropdown');
+    const displayParagraph = document.getElementById('displayParagraph');
+
+    dropdown.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        displayParagraph.textContent = `Selected value: ${selectedValue}`;
+    });
+});
+
+});
+    // Activity 5
+    let parentList =document.getElementById('parentList')
+    parentList.addEventListener('click', function(event) {
+      
+            if (event.target.tagName === 'LI') {
+              
+                console.log(`Item clicked: ${event.target.textContent}`);
+            }
+        });
+
+
+        const parent = document.getElementById('parent');
+        document.getElementById('addChild').onclick = () => {
+            const child = document.createElement('div');
+            child.textContent = `Child ${parent.children.length + 1}`;
+            parent.appendChild(child);
+        };
+
+       
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

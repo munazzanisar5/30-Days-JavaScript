@@ -1,0 +1,13 @@
+{
+  "name": "entiremodule",
+  "version": "1.0.0",
+  "main": "task5e.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node task5i.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}

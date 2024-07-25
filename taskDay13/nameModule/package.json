@@ -1,0 +1,15 @@
+{
+  "name": "taskday13",
+  "version": "1.0.0",
+  "main": "taskDay13A.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node taskDay13A.js"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}

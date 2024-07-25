@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <style>
+    .para{
+        border: 3px solid rgb(73, 4, 201);
+        padding: 1rem;
+    }
+</style>
+  <body>
+    <div class="block">
+      <h1 id="person" class="bg">Amir is a good person</h1>
+    </div>
+
+    <ul id="ul">
+      List
+    </ul>
+
+    <div class="remove">Remove</div>
+
+    <div style="margin: 2rem 0">
+      <ul id="lastChild">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <button onclick="removeLastChild()">Remove Last Child</button>
+    </div>
+
+    <img id="img" src="img1.jpeg" alt="" />
+    <button onclick="changeSrc()">Change Img</button>
+
+    <div id="myElement">Hello, world!</div>
+    <button onclick="addClass()">Add Class</button>
+    <button onclick="removeClass()">Remove Class</button>
+
+
+    <div>
+      <p class="para">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta ratione
+        sunt quas repudiandae natus debitis quia incidunt ea! Voluptate,
+      </p>
+    </div>
+
+    <script>
+
+        // Activity 1
+      let person = document.getElementById("person");
+      person.textContent = `Amir and Asim are good person`;
+      let bgColor = document.getElementsByClassName("block");
+      bgColor[0].style.backgroundColor = "gray";
+
+
+      // Activity 2
+      let newDiv = document.createElement("div");
+      newDiv.className = "div";
+      newDiv.textContent = `They are best friends`;
+      document.body.appendChild(newDiv);
+
+      let ul = document.querySelector("#ul");
+      let newLi = document.createElement("li");
+      newLi.className = "list";
+      newLi.textContent = `New List`;
+      ul.appendChild(newLi);
+
+      // Activity 3
+
+      let removeElement = document.querySelector(".remove");
+      removeElement.remove();
+
+      function removeLastChild() {
+        let last = document.getElementById("lastChild");
+      
+        if (last.lastChild) {
+          last.removeChild(last.lastElementChild);
+        }
+      }
+
+
+      // Activity 4
+
+      function changeSrc() {
+        document.querySelector("#img").src = "img2.jpeg";
+      }
+
+      function addClass() {
+        document.getElementById('myElement').classList.add('highlight');
+      }
+      function removeClass() {
+            document.getElementById('myElement').classList.remove('highlight');
+        }
+
+
+       // Activity 5 
+
+      let para = document.querySelector(".para");
+      para.addEventListener('click', () => {
+        para.textContent = `The addEventListener() method of the EventTarget interface sets up a function that will be called whenever the specified event is delivered to the target.`;
+      });
+
+      para.addEventListener("mouseover", ()=>{
+        para.style.border = "4px solid red"
+      })
+
+
+    </script>
+  </body>
+</html>
